@@ -1,4 +1,4 @@
-import '../../src/Gridmap';
+import '../../src';
 import data from '../data/bikeparking-moscow.geojson';
 
 ymaps.ready(() => {
