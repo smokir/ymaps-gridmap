@@ -83,7 +83,7 @@ function define(ymaps) {
              *
              * @public
              * @param {Map} map Map instance.
-             * @returns {Polygonmap} Self-reference.
+             * @returns {Gridmap|Polygonmap} Self-reference.
              */
             setMap(map) {
                 if (this._map !== map) {
@@ -91,6 +91,7 @@ function define(ymaps) {
 
                     if (map && this._data) {
                         this._render();
+                        return this._polygonmap;
                     }
                 }
 
@@ -152,9 +153,9 @@ function define(ymaps) {
                     }
                 }
 
-                const polygonmap = new Polygonmap({polygons, points}, this.options);
+                this._polygonmap = new Polygonmap({polygons, points}, this.options);
 
-                polygonmap.setMap(this._map);
+                this._polygonmap.setMap(this._map);
             }
         }
 
